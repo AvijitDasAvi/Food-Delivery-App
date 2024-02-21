@@ -16,50 +16,238 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        margin: const EdgeInsets.only(top: 50.0, left: 20.0, right: 20.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Hello Avijit",
-                  style: AppWidget.boldTextFieldStyle(),
+      body: SingleChildScrollView(
+        child: Container(
+          margin: const EdgeInsets.only(
+            top: 50.0,
+            left: 20.0,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Hello Avijit",
+                    style: AppWidget.boldTextFieldStyle(),
+                  ),
+                  Container(
+                    margin: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(3.0),
+                    decoration: BoxDecoration(
+                        color: Colors.black,
+                        borderRadius: BorderRadius.circular(8.0)),
+                    child: const Icon(
+                      Icons.shopping_cart_outlined,
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 20.0,
+              ),
+              Text(
+                "Delicious Food",
+                style: AppWidget.headlineTextFieldStyle(),
+              ),
+              Text(
+                "Discover and Get Great Food",
+                style: AppWidget.lightTextFieldStyle(),
+              ),
+              const SizedBox(
+                height: 10.0,
+              ),
+              Container(
+                  margin: const EdgeInsets.only(
+                    right: 20.0,
+                  ),
+                  child: variousItem()),
+              const SizedBox(
+                height: 30.0,
+              ),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    Container(
+                      margin: const EdgeInsets.all(4.0),
+                      child: Material(
+                        elevation: 5.0,
+                        borderRadius: BorderRadius.circular(20.0),
+                        child: Container(
+                          padding: const EdgeInsets.all(10.0),
+                          child: Column(
+                            children: [
+                              Image.asset(
+                                "images/salad2.png",
+                                height: 100,
+                                width: 100,
+                                fit: BoxFit.cover,
+                              ),
+                              const SizedBox(height: 5.0),
+                              Text(
+                                "Veggie Taco Hash",
+                                style: AppWidget.semiBoldTextFieldStyle(),
+                              ),
+                              const SizedBox(height: 5.0),
+                              Text(
+                                "Fresh & Healthy",
+                                style: AppWidget.lightTextFieldStyle(),
+                              ),
+                              const SizedBox(height: 5.0),
+                              Text(
+                                "\$25",
+                                style: AppWidget.semiBoldTextFieldStyle(),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 10.0,
+                    ),
+                    Container(
+                      margin: const EdgeInsets.all(4.0),
+                      child: Material(
+                        elevation: 5.0,
+                        borderRadius: BorderRadius.circular(20.0),
+                        child: Container(
+                          padding: const EdgeInsets.all(10.0),
+                          child: Column(
+                            children: [
+                              Image.asset(
+                                "images/salad2.png",
+                                height: 100,
+                                width: 100,
+                                fit: BoxFit.cover,
+                              ),
+                              const SizedBox(height: 5.0),
+                              Text(
+                                "Mix Veg Salad",
+                                style: AppWidget.semiBoldTextFieldStyle(),
+                              ),
+                              const SizedBox(height: 5.0),
+                              Text(
+                                "Spicy with Onion",
+                                style: AppWidget.lightTextFieldStyle(),
+                              ),
+                              const SizedBox(height: 5.0),
+                              Text(
+                                "\$25",
+                                style: AppWidget.semiBoldTextFieldStyle(),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 10.0,
+                    ),
+                    Container(
+                      margin: const EdgeInsets.all(4.0),
+                      child: Material(
+                        elevation: 5.0,
+                        borderRadius: BorderRadius.circular(20.0),
+                        child: Container(
+                          padding: const EdgeInsets.all(10.0),
+                          child: Column(
+                            children: [
+                              Image.asset(
+                                "images/salad2.png",
+                                height: 100,
+                                width: 100,
+                                fit: BoxFit.cover,
+                              ),
+                              const SizedBox(height: 5.0),
+                              Text(
+                                "Veggie Taco Hash",
+                                style: AppWidget.semiBoldTextFieldStyle(),
+                              ),
+                              const SizedBox(height: 5.0),
+                              Text(
+                                "Fresh & Healthy",
+                                style: AppWidget.lightTextFieldStyle(),
+                              ),
+                              const SizedBox(height: 5.0),
+                              Text(
+                                "\$25",
+                                style: AppWidget.semiBoldTextFieldStyle(),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-                Container(
-                  padding: const EdgeInsets.all(3.0),
-                  decoration: BoxDecoration(
-                      color: Colors.black,
-                      borderRadius: BorderRadius.circular(8.0)),
-                  child: const Icon(
-                    Icons.shopping_cart_outlined,
-                    color: Colors.white,
+              ),
+              SizedBox(
+                height: 20.0,
+              ),
+              Container(
+                padding: EdgeInsets.only(right: 20.0),
+                child: Material(
+                  elevation: 5.0,
+                  borderRadius: BorderRadius.circular(20.0),
+                  child: Container(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Image.asset(
+                          "images/salad2.png",
+                          height: 80,
+                          width: 80,
+                          fit: BoxFit.cover,
+                        ),
+                        SizedBox(
+                          width: 20.0,
+                        ),
+                        Column(
+                          children: [
+                            Container(
+                              width: MediaQuery.of(context).size.width / 2,
+                              child: Text(
+                                "Mediterranean Chickpea Salad",
+                                style: AppWidget.semiBoldTextFieldStyle(),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 5.0,
+                            ),
+                            Container(
+                              width: MediaQuery.of(context).size.width / 2,
+                              child: Text(
+                                "Honey goot cheese",
+                                style: AppWidget.lightTextFieldStyle(),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 5.0,
+                            ),
+                            Container(
+                              width: MediaQuery.of(context).size.width / 2,
+                              child: Text(
+                                "\&15",
+                                style: AppWidget.semiBoldTextFieldStyle(),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ],
-            ),
-            const SizedBox(
-              height: 20.0,
-            ),
-            Text(
-              "Delicious Food",
-              style: AppWidget.headlineTextFieldStyle(),
-            ),
-            Text(
-              "Discover and Get Great Food",
-              style: AppWidget.lightTextFieldStyle(),
-            ),
-            const SizedBox(
-              height: 10.0,
-            ),
-            variousItem(),
-            const SizedBox(
-              height: 30.0,
-            ),
-            displayItem(),
-          ],
+              ),
+              SizedBox(
+                height: 20.0,
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -202,127 +390,6 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ],
-    );
-  }
-
-  Widget displayItem() {
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Row(
-        children: [
-          Container(
-            margin: const EdgeInsets.all(4.0),
-            child: Material(
-              elevation: 5.0,
-              borderRadius: BorderRadius.circular(20.0),
-              child: Container(
-                padding: const EdgeInsets.all(10.0),
-                child: Column(
-                  children: [
-                    Image.asset(
-                      "images/salad2.png",
-                      height: 120,
-                      width: 120,
-                      fit: BoxFit.cover,
-                    ),
-                    const SizedBox(height: 5.0),
-                    Text(
-                      "Veggie Taco Hash",
-                      style: AppWidget.semiBoldTextFieldStyle(),
-                    ),
-                    const SizedBox(height: 5.0),
-                    Text(
-                      "Fresh & Healthy",
-                      style: AppWidget.lightTextFieldStyle(),
-                    ),
-                    const SizedBox(height: 5.0),
-                    Text(
-                      "\$25",
-                      style: AppWidget.semiBoldTextFieldStyle(),
-                    )
-                  ],
-                ),
-              ),
-            ),
-          ),
-          const SizedBox(
-            width: 10.0,
-          ),
-          Container(
-            margin: const EdgeInsets.all(4.0),
-            child: Material(
-              elevation: 5.0,
-              borderRadius: BorderRadius.circular(20.0),
-              child: Container(
-                padding: const EdgeInsets.all(10.0),
-                child: Column(
-                  children: [
-                    Image.asset(
-                      "images/salad2.png",
-                      height: 120,
-                      width: 120,
-                      fit: BoxFit.cover,
-                    ),
-                    const SizedBox(height: 5.0),
-                    Text(
-                      "Veggie Taco Hash",
-                      style: AppWidget.semiBoldTextFieldStyle(),
-                    ),
-                    const SizedBox(height: 5.0),
-                    Text(
-                      "Fresh & Healthy",
-                      style: AppWidget.lightTextFieldStyle(),
-                    ),
-                    const SizedBox(height: 5.0),
-                    Text(
-                      "\$25",
-                      style: AppWidget.semiBoldTextFieldStyle(),
-                    )
-                  ],
-                ),
-              ),
-            ),
-          ),
-          const SizedBox(
-            width: 10.0,
-          ),
-          Container(
-            margin: const EdgeInsets.all(4.0),
-            child: Material(
-              elevation: 5.0,
-              borderRadius: BorderRadius.circular(20.0),
-              child: Container(
-                padding: const EdgeInsets.all(10.0),
-                child: Column(
-                  children: [
-                    Image.asset(
-                      "images/salad2.png",
-                      height: 120,
-                      width: 120,
-                      fit: BoxFit.cover,
-                    ),
-                    const SizedBox(height: 5.0),
-                    Text(
-                      "Veggie Taco Hash",
-                      style: AppWidget.semiBoldTextFieldStyle(),
-                    ),
-                    const SizedBox(height: 5.0),
-                    Text(
-                      "Fresh & Healthy",
-                      style: AppWidget.lightTextFieldStyle(),
-                    ),
-                    const SizedBox(height: 5.0),
-                    Text(
-                      "\$25",
-                      style: AppWidget.semiBoldTextFieldStyle(),
-                    )
-                  ],
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
     );
   }
 }
