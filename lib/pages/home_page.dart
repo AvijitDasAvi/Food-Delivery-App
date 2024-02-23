@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/pages/details_page.dart';
 import 'package:food_delivery_app/widgets/widget_support.dart';
 
 class HomePage extends StatefulWidget {
@@ -72,37 +73,47 @@ class _HomePageState extends State<HomePage> {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
-                    Container(
-                      margin: const EdgeInsets.all(4.0),
-                      child: Material(
-                        elevation: 5.0,
-                        borderRadius: BorderRadius.circular(20.0),
-                        child: Container(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Column(
-                            children: [
-                              Image.asset(
-                                "images/salad2.png",
-                                height: 100,
-                                width: 100,
-                                fit: BoxFit.cover,
-                              ),
-                              const SizedBox(height: 5.0),
-                              Text(
-                                "Veggie Taco Hash",
-                                style: AppWidget.semiBoldTextFieldStyle(),
-                              ),
-                              const SizedBox(height: 5.0),
-                              Text(
-                                "Fresh & Healthy",
-                                style: AppWidget.lightTextFieldStyle(),
-                              ),
-                              const SizedBox(height: 5.0),
-                              Text(
-                                "\$25",
-                                style: AppWidget.semiBoldTextFieldStyle(),
-                              ),
-                            ],
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => DetailsPage(),
+                          ),
+                        );
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.all(4.0),
+                        child: Material(
+                          elevation: 5.0,
+                          borderRadius: BorderRadius.circular(20.0),
+                          child: Container(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Column(
+                              children: [
+                                Image.asset(
+                                  "images/salad2.png",
+                                  height: 100,
+                                  width: 100,
+                                  fit: BoxFit.cover,
+                                ),
+                                const SizedBox(height: 5.0),
+                                Text(
+                                  "Veggie Taco Hash",
+                                  style: AppWidget.semiBoldTextFieldStyle(),
+                                ),
+                                const SizedBox(height: 5.0),
+                                Text(
+                                  "Fresh & Healthy",
+                                  style: AppWidget.lightTextFieldStyle(),
+                                ),
+                                const SizedBox(height: 5.0),
+                                Text(
+                                  "\$25",
+                                  style: AppWidget.semiBoldTextFieldStyle(),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
