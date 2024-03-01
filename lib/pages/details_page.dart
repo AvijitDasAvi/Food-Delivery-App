@@ -11,7 +11,9 @@ class _DetailsPageState extends State<DetailsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(),
+      body: Container(
+        child: Text("Details Page"),
+      ),
     );
   }
 }
