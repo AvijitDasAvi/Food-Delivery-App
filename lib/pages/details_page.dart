@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/pages/home_page.dart';
 
 class DetailsPage extends StatefulWidget {
   const DetailsPage({super.key});
@@ -12,7 +13,28 @@ class _DetailsPageState extends State<DetailsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        child: Text("Details Page"),
+        margin: const EdgeInsets.only(top: 25.0, left: 20.0, right: 20.0),
+        child: Column(
+          children: [
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const HomePage(),
+                  ),
+                );
+              },
+              child: const Icon(
+                Icons.arrow_back_ios_new_outlined,
+                color: Colors.black,
+              ),
+            ),
+            Image.asset(
+              "images/salad2.png",
+            )
+          ],
+        ),
       ),
     );
   }

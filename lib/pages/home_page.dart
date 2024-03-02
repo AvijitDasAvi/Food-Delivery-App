@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage> {
       body: SingleChildScrollView(
         child: Container(
           margin: const EdgeInsets.only(
-            top: 50.0,
+            top: 25.0,
             left: 20.0,
           ),
           child: Column(
@@ -71,18 +71,18 @@ class _HomePageState extends State<HomePage> {
               ),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
-                    InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => DetailsPage(),
-                          ),
-                        );
-                      },
-                      child: Container(
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const DetailsPage(),
+                      ),
+                    );
+                  },
+                  child: Row(
+                    children: [
+                      Container(
                         margin: const EdgeInsets.all(4.0),
                         child: Material(
                           elevation: 5.0,
@@ -117,84 +117,84 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                       ),
-                    ),
-                    const SizedBox(
-                      width: 10.0,
-                    ),
-                    Container(
-                      margin: const EdgeInsets.all(4.0),
-                      child: Material(
-                        elevation: 5.0,
-                        borderRadius: BorderRadius.circular(20.0),
-                        child: Container(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Column(
-                            children: [
-                              Image.asset(
-                                "images/salad2.png",
-                                height: 100,
-                                width: 100,
-                                fit: BoxFit.cover,
-                              ),
-                              const SizedBox(height: 5.0),
-                              Text(
-                                "Mix Veg Salad",
-                                style: AppWidget.semiBoldTextFieldStyle(),
-                              ),
-                              const SizedBox(height: 5.0),
-                              Text(
-                                "Spicy with Onion",
-                                style: AppWidget.lightTextFieldStyle(),
-                              ),
-                              const SizedBox(height: 5.0),
-                              Text(
-                                "\$25",
-                                style: AppWidget.semiBoldTextFieldStyle(),
-                              )
-                            ],
+                      const SizedBox(
+                        width: 10.0,
+                      ),
+                      Container(
+                        margin: const EdgeInsets.all(4.0),
+                        child: Material(
+                          elevation: 5.0,
+                          borderRadius: BorderRadius.circular(20.0),
+                          child: Container(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Column(
+                              children: [
+                                Image.asset(
+                                  "images/salad2.png",
+                                  height: 100,
+                                  width: 100,
+                                  fit: BoxFit.cover,
+                                ),
+                                const SizedBox(height: 5.0),
+                                Text(
+                                  "Mix Veg Salad",
+                                  style: AppWidget.semiBoldTextFieldStyle(),
+                                ),
+                                const SizedBox(height: 5.0),
+                                Text(
+                                  "Spicy with Onion",
+                                  style: AppWidget.lightTextFieldStyle(),
+                                ),
+                                const SizedBox(height: 5.0),
+                                Text(
+                                  "\$25",
+                                  style: AppWidget.semiBoldTextFieldStyle(),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    const SizedBox(
-                      width: 10.0,
-                    ),
-                    Container(
-                      margin: const EdgeInsets.all(4.0),
-                      child: Material(
-                        elevation: 5.0,
-                        borderRadius: BorderRadius.circular(20.0),
-                        child: Container(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Column(
-                            children: [
-                              Image.asset(
-                                "images/salad2.png",
-                                height: 100,
-                                width: 100,
-                                fit: BoxFit.cover,
-                              ),
-                              const SizedBox(height: 5.0),
-                              Text(
-                                "Veggie Taco Hash",
-                                style: AppWidget.semiBoldTextFieldStyle(),
-                              ),
-                              const SizedBox(height: 5.0),
-                              Text(
-                                "Fresh & Healthy",
-                                style: AppWidget.lightTextFieldStyle(),
-                              ),
-                              const SizedBox(height: 5.0),
-                              Text(
-                                "\$25",
-                                style: AppWidget.semiBoldTextFieldStyle(),
-                              )
-                            ],
+                      const SizedBox(
+                        width: 10.0,
+                      ),
+                      Container(
+                        margin: const EdgeInsets.all(4.0),
+                        child: Material(
+                          elevation: 5.0,
+                          borderRadius: BorderRadius.circular(20.0),
+                          child: Container(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Column(
+                              children: [
+                                Image.asset(
+                                  "images/salad2.png",
+                                  height: 100,
+                                  width: 100,
+                                  fit: BoxFit.cover,
+                                ),
+                                const SizedBox(height: 5.0),
+                                Text(
+                                  "Veggie Taco Hash",
+                                  style: AppWidget.semiBoldTextFieldStyle(),
+                                ),
+                                const SizedBox(height: 5.0),
+                                Text(
+                                  "Fresh & Healthy",
+                                  style: AppWidget.lightTextFieldStyle(),
+                                ),
+                                const SizedBox(height: 5.0),
+                                Text(
+                                  "\$25",
+                                  style: AppWidget.semiBoldTextFieldStyle(),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
               SizedBox(
