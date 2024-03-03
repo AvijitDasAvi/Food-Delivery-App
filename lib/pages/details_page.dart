@@ -133,7 +133,64 @@ class _DetailsPageState extends State<DetailsPage> {
                   style: AppWidget.semiBoldTextFieldStyle(),
                 )
               ],
-            )
+            ),
+            const Spacer(),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Total Price",
+                        style: AppWidget.semiBoldTextFieldStyle(),
+                      ),
+                      Text(
+                        "\$28",
+                        style: AppWidget.boldTextFieldStyle(),
+                      ),
+                    ],
+                  ),
+                  Container(
+                    width: MediaQuery.of(context).size.width / 2,
+                    padding: const EdgeInsets.only(
+                        left: 10.0, right: 6.0, top: 6.0, bottom: 6.0),
+                    decoration: BoxDecoration(
+                        color: Colors.black,
+                        borderRadius: BorderRadius.circular(10.0)),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text(
+                          "Add to cart",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16.0,
+                              fontFamily: 'Poppins'),
+                        ),
+                        const SizedBox(
+                          width: 30.0,
+                        ),
+                        Container(
+                          decoration: BoxDecoration(
+                              color: Colors.grey,
+                              borderRadius: BorderRadius.circular(8.0)),
+                          child: IconButton(
+                            onPressed: () {},
+                            icon: const Icon(
+                              Icons.shopping_cart_outlined,
+                              color: Colors.white,
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),

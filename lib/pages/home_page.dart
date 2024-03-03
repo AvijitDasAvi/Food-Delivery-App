@@ -17,7 +17,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(),
+      drawer: const Drawer(),
       body: SingleChildScrollView(
         child: Container(
           margin: const EdgeInsets.only(
@@ -197,11 +197,11 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20.0,
               ),
               Container(
-                padding: EdgeInsets.only(right: 20.0),
+                padding: const EdgeInsets.only(right: 20.0),
                 child: Material(
                   elevation: 5.0,
                   borderRadius: BorderRadius.circular(20.0),
@@ -216,7 +216,7 @@ class _HomePageState extends State<HomePage> {
                           width: 80,
                           fit: BoxFit.cover,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 20.0,
                         ),
                         Column(
@@ -228,7 +228,7 @@ class _HomePageState extends State<HomePage> {
                                 style: AppWidget.semiBoldTextFieldStyle(),
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 5.0,
                             ),
                             Container(
@@ -238,13 +238,13 @@ class _HomePageState extends State<HomePage> {
                                 style: AppWidget.lightTextFieldStyle(),
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 5.0,
                             ),
                             Container(
                               width: MediaQuery.of(context).size.width / 2,
                               child: Text(
-                                "\&15",
+                                "\$15",
                                 style: AppWidget.semiBoldTextFieldStyle(),
                               ),
                             ),
@@ -255,7 +255,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20.0,
               ),
             ],
