@@ -99,6 +99,40 @@ class _DetailsPageState extends State<DetailsPage> {
                   ),
                 )
               ],
+            ),
+            const SizedBox(
+              height: 10.0,
+            ),
+            Text(
+              "Chickpeas are high in fiber, protein, and healthy fats and have a low GI. Potential benefits of chickpeas include helping control blood sugar, manage weight, and support heart and gut health. Chickpeas are versatile, so you can add them to many savory or sweet meals and snacks.",
+              style: AppWidget.lightTextFieldStyle(),
+              textAlign: TextAlign.justify,
+              maxLines: 3,
+            ),
+            const SizedBox(
+              height: 20.0,
+            ),
+            Row(
+              children: [
+                Text(
+                  "Delivery Time",
+                  style: AppWidget.semiBoldTextFieldStyle(),
+                ),
+                const SizedBox(
+                  width: 20.0,
+                ),
+                const Icon(
+                  Icons.alarm,
+                  color: Colors.grey,
+                ),
+                const SizedBox(
+                  width: 5.0,
+                ),
+                Text(
+                  "30 min",
+                  style: AppWidget.semiBoldTextFieldStyle(),
+                )
+              ],
             )
           ],
         ),
