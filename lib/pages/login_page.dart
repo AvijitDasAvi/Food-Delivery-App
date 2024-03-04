@@ -27,7 +27,24 @@ class _LoginPageState extends State<LoginPage> {
                 ],
               ),
             ),
-          )
+          ),
+          Container(
+            margin:
+                EdgeInsets.only(top: MediaQuery.of(context).size.height / 3),
+            height: MediaQuery.of(context).size.height / 2,
+            width: MediaQuery.of(context).size.width,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(
+                  30.0,
+                ),
+                topRight: Radius.circular(
+                  30.0,
+                ),
+              ),
+            ),
+          ),
         ],
       )),
     );
