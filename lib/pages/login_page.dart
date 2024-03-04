@@ -9,6 +9,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  bool _obsecureText = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -93,17 +94,74 @@ class _LoginPageState extends State<LoginPage> {
                               prefixIconColor: Color.fromARGB(255, 0, 0, 0),
                             ),
                           ),
+                          const SizedBox(
+                            height: 20.0,
+                          ),
                           TextFormField(
+                            obscureText: _obsecureText,
                             decoration: InputDecoration(
                               hintText: "Password",
+                              suffixIcon: IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    _obsecureText = !_obsecureText;
+                                  });
+                                },
+                                icon: Icon(_obsecureText
+                                    ? Icons.visibility
+                                    : Icons.visibility_off),
+                              ),
                               hintStyle: AppWidget.semiBoldTextFieldStyle(),
-                              prefixIcon: Icon(Icons.password_outlined),
-                              prefixIconColor: Color.fromARGB(255, 0, 0, 0),
+                              prefixIcon: const Icon(Icons.password_outlined),
+                              prefixIconColor:
+                                  const Color.fromARGB(255, 0, 0, 0),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 10.0,
+                          ),
+                          Container(
+                            alignment: Alignment.topRight,
+                            child: Text(
+                              "Forgot Password ?",
+                              style: AppWidget.semiBoldTextFieldStyle(),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 40.0,
+                          ),
+                          Material(
+                            elevation: 5.0,
+                            borderRadius: BorderRadius.circular(20.0),
+                            child: Container(
+                              padding: EdgeInsets.symmetric(vertical: 8.0),
+                              width: 200,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20.0),
+                                color: Color.fromARGB(255, 228, 57, 5),
+                              ),
+                              child: Center(
+                                child: Text(
+                                  "LOGIN",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontFamily: 'Poppins',
+                                      fontSize: 18.0,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
                             ),
                           ),
                         ],
                       ),
                     ),
+                  ),
+                  const SizedBox(
+                    height: 50.0,
+                  ),
+                  Text(
+                    "Dont't have an account ? Sign Up",
+                    style: AppWidget.semiBoldTextFieldStyle(),
                   )
                 ],
               ),
