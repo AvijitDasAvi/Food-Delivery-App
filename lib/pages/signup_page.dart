@@ -65,7 +65,7 @@ class _SignupPageState extends State<SignupPage> {
                     ),
                   ),
                   Material(
-                    elevation: 5.0,
+                    elevation: 8.0,
                     borderRadius: BorderRadius.circular(20.0),
                     child: Container(
                       padding: EdgeInsets.only(left: 20.0, right: 20.0),

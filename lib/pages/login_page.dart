@@ -51,7 +51,6 @@ class _LoginPageState extends State<LoginPage> {
             ),
             Container(
               margin: EdgeInsets.only(
-                top: 30.0,
                 left: 20.0,
                 right: 20.0,
               ),
@@ -61,15 +60,12 @@ class _LoginPageState extends State<LoginPage> {
                     child: Image.asset(
                       "images/logo.png",
                       width: MediaQuery.of(context).size.width / 2,
-                      height: MediaQuery.of(context).size.height / 1.5,
+                      height: MediaQuery.of(context).size.height / 4,
                       fit: BoxFit.cover,
                     ),
                   ),
-                  const SizedBox(
-                    height: 20.0,
-                  ),
                   Material(
-                    elevation: 5.0,
+                    elevation: 8.0,
                     borderRadius: BorderRadius.circular(20.0),
                     child: Container(
                       padding: const EdgeInsets.only(left: 20.0, right: 20.0),
