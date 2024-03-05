@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery_app/pages/signup_page.dart';
+import 'package:food_delivery_app/pages/login_page.dart';
 import 'package:food_delivery_app/widgets/widget_support.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class SignupPage extends StatefulWidget {
+  const SignupPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<SignupPage> createState() => _SignupPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
-  bool _obsecureText = true;
+class _SignupPageState extends State<SignupPage> {
+  bool _obsecure = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,9 +71,9 @@ class _LoginPageState extends State<LoginPage> {
                     elevation: 5.0,
                     borderRadius: BorderRadius.circular(20.0),
                     child: Container(
-                      padding: const EdgeInsets.only(left: 20.0, right: 20.0),
+                      padding: EdgeInsets.only(left: 20.0, right: 20.0),
                       width: MediaQuery.of(context).size.width,
-                      height: MediaQuery.of(context).size.height / 2,
+                      height: MediaQuery.of(context).size.height / 1.5,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20.0),
                         color: Colors.white,
@@ -84,49 +84,48 @@ class _LoginPageState extends State<LoginPage> {
                             height: 10.0,
                           ),
                           Text(
-                            "Login",
+                            "Sign Up",
                             style: AppWidget.headlineTextFieldStyle(),
+                          ),
+                          TextField(
+                            decoration: InputDecoration(
+                              hintText: "Name",
+                              hintStyle: AppWidget.semiBoldTextFieldStyle(),
+                              prefixIcon: Icon(Icons.person_outlined),
+                              prefixIconColor: Color.fromARGB(255, 0, 0, 0),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 20.0,
                           ),
                           TextField(
                             decoration: InputDecoration(
                               hintText: "Email",
                               hintStyle: AppWidget.semiBoldTextFieldStyle(),
-                              prefixIcon: const Icon(Icons.email_outlined),
-                              prefixIconColor:
-                                  const Color.fromARGB(255, 0, 0, 0),
+                              prefixIcon: Icon(Icons.person_outline),
+                              prefixIconColor: Color.fromARGB(255, 0, 0, 0),
                             ),
                           ),
                           const SizedBox(
                             height: 20.0,
                           ),
                           TextFormField(
-                            obscureText: _obsecureText,
+                            obscureText: _obsecure,
                             decoration: InputDecoration(
                               hintText: "Password",
-                              suffixIcon: IconButton(
-                                onPressed: () {
-                                  setState(() {
-                                    _obsecureText = !_obsecureText;
-                                  });
-                                },
-                                icon: Icon(_obsecureText
-                                    ? Icons.visibility
-                                    : Icons.visibility_off),
-                              ),
                               hintStyle: AppWidget.semiBoldTextFieldStyle(),
+                              suffixIcon: IconButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      _obsecure = !_obsecure;
+                                    });
+                                  },
+                                  icon: Icon(_obsecure
+                                      ? Icons.visibility
+                                      : Icons.visibility_off)),
                               prefixIcon: const Icon(Icons.password_outlined),
                               prefixIconColor:
                                   const Color.fromARGB(255, 0, 0, 0),
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 10.0,
-                          ),
-                          Container(
-                            alignment: Alignment.topRight,
-                            child: Text(
-                              "Forgot Password ?",
-                              style: AppWidget.semiBoldTextFieldStyle(),
                             ),
                           ),
                           const SizedBox(
@@ -144,7 +143,7 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                               child: Center(
                                 child: Text(
-                                  "LOGIN",
+                                  "SIGN UP",
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontFamily: 'Poppins',
@@ -159,19 +158,19 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                   const SizedBox(
-                    height: 50.0,
+                    height: 30.0,
                   ),
                   InkWell(
                     onTap: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => SignupPage(),
+                          builder: (context) => LoginPage(),
                         ),
                       );
                     },
                     child: Text(
-                      "Dont't have an account ? Sign Up",
+                      "Already have an account? Login",
                       style: AppWidget.semiBoldTextFieldStyle(),
                     ),
                   )
