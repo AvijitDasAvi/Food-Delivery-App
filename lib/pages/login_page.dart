@@ -60,7 +60,8 @@ class _LoginPageState extends State<LoginPage> {
                   Center(
                     child: Image.asset(
                       "images/logo.png",
-                      width: MediaQuery.of(context).size.width / 1.5,
+                      width: MediaQuery.of(context).size.width / 2,
+                      height: MediaQuery.of(context).size.height / 1.5,
                       fit: BoxFit.cover,
                     ),
                   ),

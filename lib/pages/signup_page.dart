@@ -51,7 +51,6 @@ class _SignupPageState extends State<SignupPage> {
             ),
             Container(
               margin: EdgeInsets.only(
-                top: 30.0,
                 left: 20.0,
                 right: 20.0,
               ),
@@ -60,12 +59,10 @@ class _SignupPageState extends State<SignupPage> {
                   Center(
                     child: Image.asset(
                       "images/logo.png",
-                      width: MediaQuery.of(context).size.width / 1.5,
+                      width: MediaQuery.of(context).size.width / 2,
+                      height: MediaQuery.of(context).size.height / 4,
                       fit: BoxFit.cover,
                     ),
-                  ),
-                  const SizedBox(
-                    height: 20.0,
                   ),
                   Material(
                     elevation: 5.0,
@@ -73,7 +70,7 @@ class _SignupPageState extends State<SignupPage> {
                     child: Container(
                       padding: EdgeInsets.only(left: 20.0, right: 20.0),
                       width: MediaQuery.of(context).size.width,
-                      height: MediaQuery.of(context).size.height / 1.5,
+                      height: MediaQuery.of(context).size.height / 1.8,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20.0),
                         color: Colors.white,
@@ -158,7 +155,7 @@ class _SignupPageState extends State<SignupPage> {
                     ),
                   ),
                   const SizedBox(
-                    height: 30.0,
+                    height: 20.0,
                   ),
                   InkWell(
                     onTap: () {
