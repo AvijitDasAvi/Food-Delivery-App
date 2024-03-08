@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/pages/home_page.dart';
 import 'package:food_delivery_app/pages/signup_page.dart';
 import 'package:food_delivery_app/widgets/widget_support.dart';
 
@@ -129,24 +130,34 @@ class _LoginPageState extends State<LoginPage> {
                           const SizedBox(
                             height: 40.0,
                           ),
-                          Material(
-                            elevation: 5.0,
-                            borderRadius: BorderRadius.circular(20.0),
-                            child: Container(
-                              padding: EdgeInsets.symmetric(vertical: 8.0),
-                              width: 200,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20.0),
-                                color: Color.fromARGB(255, 228, 57, 5),
-                              ),
-                              child: Center(
-                                child: Text(
-                                  "LOGIN",
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontFamily: 'Poppins',
-                                      fontSize: 18.0,
-                                      fontWeight: FontWeight.bold),
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => HomePage(),
+                                ),
+                              );
+                            },
+                            child: Material(
+                              elevation: 5.0,
+                              borderRadius: BorderRadius.circular(20.0),
+                              child: Container(
+                                padding: EdgeInsets.symmetric(vertical: 8.0),
+                                width: 200,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20.0),
+                                  color: Color.fromARGB(255, 228, 57, 5),
+                                ),
+                                child: Center(
+                                  child: Text(
+                                    "LOGIN",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontFamily: 'Poppins',
+                                        fontSize: 18.0,
+                                        fontWeight: FontWeight.bold),
+                                  ),
                                 ),
                               ),
                             ),
