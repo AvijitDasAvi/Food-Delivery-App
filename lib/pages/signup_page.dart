@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/pages/login_page.dart';
 import 'package:food_delivery_app/widgets/widget_support.dart';
@@ -11,6 +12,40 @@ class SignupPage extends StatefulWidget {
 
 class _SignupPageState extends State<SignupPage> {
   bool _obsecure = true;
+  String name = "", password = "", email = "";
+  TextEditingController nameController = new TextEditingController();
+  TextEditingController passwordController = new TextEditingController();
+  TextEditingController mailController = new TextEditingController();
+
+  registration() async {
+    if (password != null) {
+      try {
+        UserCredential userCredential = await FirebaseAuth.instance
+            .createUserWithEmailAndPassword(email: email, password: password);
+        ScaffoldMessenger.of(context).showSnackBar((SnackBar(
+            backgroundColor: Colors.redAccent,
+            content: Text(
+              "Registered Successfully",
+              style: TextStyle(fontSize: 20.0),
+            ))));
+      } on FirebaseException catch (e) {
+        if (e.code == "weak-password") {
+          ScaffoldMessenger.of(context).showSnackBar((SnackBar(
+              backgroundColor: Colors.orangeAccent,
+              content: Text(
+                "Password provided is too weak",
+                style: TextStyle(fontSize: 18.0),
+              ))));
+        } else if (e.code == "email-already-in-use") {
+          ScaffoldMessenger.of(context).showSnackBar((SnackBar(
+              backgroundColor: Colors.orangeAccent,
+              content: Text("Account already exsists",
+                  style: TextStyle(fontSize: 18.0)))));
+        }
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +71,7 @@ class _SignupPageState extends State<SignupPage> {
                   EdgeInsets.only(top: MediaQuery.of(context).size.height / 3),
               height: MediaQuery.of(context).size.height / 2,
               width: MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(
@@ -47,10 +82,10 @@ class _SignupPageState extends State<SignupPage> {
                   ),
                 ),
               ),
-              child: Text(''),
+              child: const Text(''),
             ),
             Container(
-              margin: EdgeInsets.only(
+              margin: const EdgeInsets.only(
                 left: 20.0,
                 right: 20.0,
               ),
@@ -68,7 +103,7 @@ class _SignupPageState extends State<SignupPage> {
                     elevation: 8.0,
                     borderRadius: BorderRadius.circular(20.0),
                     child: Container(
-                      padding: EdgeInsets.only(left: 20.0, right: 20.0),
+                      padding: const EdgeInsets.only(left: 20.0, right: 20.0),
                       width: MediaQuery.of(context).size.width,
                       height: MediaQuery.of(context).size.height / 1.8,
                       decoration: BoxDecoration(
@@ -88,8 +123,9 @@ class _SignupPageState extends State<SignupPage> {
                             decoration: InputDecoration(
                               hintText: "Name",
                               hintStyle: AppWidget.semiBoldTextFieldStyle(),
-                              prefixIcon: Icon(Icons.person_outlined),
-                              prefixIconColor: Color.fromARGB(255, 0, 0, 0),
+                              prefixIcon: const Icon(Icons.person_outlined),
+                              prefixIconColor:
+                                  const Color.fromARGB(255, 0, 0, 0),
                             ),
                           ),
                           const SizedBox(
@@ -99,8 +135,9 @@ class _SignupPageState extends State<SignupPage> {
                             decoration: InputDecoration(
                               hintText: "Email",
                               hintStyle: AppWidget.semiBoldTextFieldStyle(),
-                              prefixIcon: Icon(Icons.person_outline),
-                              prefixIconColor: Color.fromARGB(255, 0, 0, 0),
+                              prefixIcon: const Icon(Icons.person_outline),
+                              prefixIconColor:
+                                  const Color.fromARGB(255, 0, 0, 0),
                             ),
                           ),
                           const SizedBox(
@@ -132,13 +169,14 @@ class _SignupPageState extends State<SignupPage> {
                             elevation: 5.0,
                             borderRadius: BorderRadius.circular(20.0),
                             child: Container(
-                              padding: EdgeInsets.symmetric(vertical: 8.0),
+                              padding:
+                                  const EdgeInsets.symmetric(vertical: 8.0),
                               width: 200,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(20.0),
                                 color: Color.fromARGB(255, 228, 57, 5),
                               ),
-                              child: Center(
+                              child: const Center(
                                 child: Text(
                                   "SIGN UP",
                                   style: TextStyle(
