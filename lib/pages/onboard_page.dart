@@ -41,8 +41,8 @@ class _OnboardPageState extends State<OnboardPage> {
                       children: [
                         Image.asset(
                           contents[i].image,
-                          height: 450,
-                          width: MediaQuery.of(context).size.width / 1.5,
+                          height: 245,
+                          width: MediaQuery.of(context).size.width / 1.8,
                           fit: BoxFit.fill,
                         ),
                         const SizedBox(
@@ -71,9 +71,9 @@ class _OnboardPageState extends State<OnboardPage> {
                   children: List.generate(
                       contents.length, (index) => buildDot(index, context))),
             ),
-            InkWell(
+            GestureDetector(
               onTap: () {
-                if (currentIndex == contents.length) {
+                if (currentIndex == contents.length - 1) {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
@@ -86,13 +86,22 @@ class _OnboardPageState extends State<OnboardPage> {
                     curve: Curves.bounceIn);
               },
               child: Container(
-                decoration: BoxDecoration(color: Colors.red),
+                decoration: BoxDecoration(
+                  color: Colors.red,
+                  borderRadius: BorderRadius.circular(20.0),
+                ),
                 height: 60.0,
                 width: double.infinity,
                 margin: const EdgeInsets.all(40),
-                child: Text(
-                  "Next",
-                  style: TextStyle(color: Colors.white),
+                child: Center(
+                  child: Text(
+                    currentIndex == contents.length - 1 ? "Start" : "Next",
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ),
               ),
             )
