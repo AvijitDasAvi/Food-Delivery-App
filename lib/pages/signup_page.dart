@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/pages/bottom_nav_bar.dart';
 import 'package:food_delivery_app/pages/login_page.dart';
 import 'package:food_delivery_app/widgets/widget_support.dart';
 
@@ -24,22 +25,32 @@ class _SignupPageState extends State<SignupPage> {
       try {
         UserCredential userCredential = await FirebaseAuth.instance
             .createUserWithEmailAndPassword(email: email, password: password);
-        ScaffoldMessenger.of(context).showSnackBar((SnackBar(
+        // ignore: use_build_context_synchronously
+        ScaffoldMessenger.of(context).showSnackBar((const SnackBar(
             backgroundColor: Colors.redAccent,
             content: Text(
               "Registered Successfully",
               style: TextStyle(fontSize: 20.0),
             ))));
+        // ignore: use_build_context_synchronously
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const BottomNavBar(),
+          ),
+        );
       } on FirebaseException catch (e) {
         if (e.code == "weak-password") {
-          ScaffoldMessenger.of(context).showSnackBar((SnackBar(
+          // ignore: use_build_context_synchronously
+          ScaffoldMessenger.of(context).showSnackBar((const SnackBar(
               backgroundColor: Colors.orangeAccent,
               content: Text(
                 "Password provided is too weak",
                 style: TextStyle(fontSize: 18.0),
               ))));
         } else if (e.code == "email-already-in-use") {
-          ScaffoldMessenger.of(context).showSnackBar((SnackBar(
+          // ignore: use_build_context_synchronously
+          ScaffoldMessenger.of(context).showSnackBar((const SnackBar(
               backgroundColor: Colors.orangeAccent,
               content: Text("Account already exsists",
                   style: TextStyle(fontSize: 18.0)))));
@@ -199,6 +210,7 @@ class _SignupPageState extends State<SignupPage> {
                                     password = passwordController.text;
                                   });
                                 }
+                                registration();
                               },
                               child: Material(
                                 elevation: 5.0,
