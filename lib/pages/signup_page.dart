@@ -17,6 +17,8 @@ class _SignupPageState extends State<SignupPage> {
   TextEditingController passwordController = new TextEditingController();
   TextEditingController mailController = new TextEditingController();
 
+  final _formKey = GlobalKey<FormState>();
+
   registration() async {
     if (password != null) {
       try {
@@ -110,85 +112,120 @@ class _SignupPageState extends State<SignupPage> {
                         borderRadius: BorderRadius.circular(20.0),
                         color: Colors.white,
                       ),
-                      child: Column(
-                        children: [
-                          const SizedBox(
-                            height: 10.0,
-                          ),
-                          Text(
-                            "Sign Up",
-                            style: AppWidget.headlineTextFieldStyle(),
-                          ),
-                          TextField(
-                            decoration: InputDecoration(
-                              hintText: "Name",
-                              hintStyle: AppWidget.semiBoldTextFieldStyle(),
-                              prefixIcon: const Icon(Icons.person_outlined),
-                              prefixIconColor:
-                                  const Color.fromARGB(255, 0, 0, 0),
+                      child: Form(
+                        key: _formKey,
+                        child: Column(
+                          children: [
+                            const SizedBox(
+                              height: 10.0,
                             ),
-                          ),
-                          const SizedBox(
-                            height: 20.0,
-                          ),
-                          TextField(
-                            decoration: InputDecoration(
-                              hintText: "Email",
-                              hintStyle: AppWidget.semiBoldTextFieldStyle(),
-                              prefixIcon: const Icon(Icons.person_outline),
-                              prefixIconColor:
-                                  const Color.fromARGB(255, 0, 0, 0),
+                            Text(
+                              "Sign Up",
+                              style: AppWidget.headlineTextFieldStyle(),
                             ),
-                          ),
-                          const SizedBox(
-                            height: 20.0,
-                          ),
-                          TextFormField(
-                            obscureText: _obsecure,
-                            decoration: InputDecoration(
-                              hintText: "Password",
-                              hintStyle: AppWidget.semiBoldTextFieldStyle(),
-                              suffixIcon: IconButton(
-                                  onPressed: () {
-                                    setState(() {
-                                      _obsecure = !_obsecure;
-                                    });
-                                  },
-                                  icon: Icon(_obsecure
-                                      ? Icons.visibility
-                                      : Icons.visibility_off)),
-                              prefixIcon: const Icon(Icons.password_outlined),
-                              prefixIconColor:
-                                  const Color.fromARGB(255, 0, 0, 0),
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 40.0,
-                          ),
-                          Material(
-                            elevation: 5.0,
-                            borderRadius: BorderRadius.circular(20.0),
-                            child: Container(
-                              padding:
-                                  const EdgeInsets.symmetric(vertical: 8.0),
-                              width: 200,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20.0),
-                                color: Color.fromARGB(255, 228, 57, 5),
+                            TextFormField(
+                              controller: nameController,
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return "Please enter the name";
+                                }
+                                return null;
+                              },
+                              decoration: InputDecoration(
+                                hintText: "Name",
+                                hintStyle: AppWidget.semiBoldTextFieldStyle(),
+                                prefixIcon: const Icon(Icons.person_outlined),
+                                prefixIconColor:
+                                    const Color.fromARGB(255, 0, 0, 0),
                               ),
-                              child: const Center(
-                                child: Text(
-                                  "SIGN UP",
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontFamily: 'Poppins',
-                                      fontSize: 18.0,
-                                      fontWeight: FontWeight.bold),
+                            ),
+                            const SizedBox(
+                              height: 20.0,
+                            ),
+                            TextFormField(
+                              controller: mailController,
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return "Please enter E-mail";
+                                }
+                                return null;
+                              },
+                              decoration: InputDecoration(
+                                hintText: "Email",
+                                hintStyle: AppWidget.semiBoldTextFieldStyle(),
+                                prefixIcon: const Icon(Icons.person_outline),
+                                prefixIconColor:
+                                    const Color.fromARGB(255, 0, 0, 0),
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 20.0,
+                            ),
+                            TextFormField(
+                              controller: passwordController,
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return "Please enter password";
+                                }
+                                return null;
+                              },
+                              obscureText: _obsecure,
+                              decoration: InputDecoration(
+                                hintText: "Password",
+                                hintStyle: AppWidget.semiBoldTextFieldStyle(),
+                                suffixIcon: IconButton(
+                                    onPressed: () {
+                                      setState(() {
+                                        _obsecure = !_obsecure;
+                                      });
+                                    },
+                                    icon: Icon(_obsecure
+                                        ? Icons.visibility
+                                        : Icons.visibility_off)),
+                                prefixIcon: const Icon(Icons.password_outlined),
+                                prefixIconColor:
+                                    const Color.fromARGB(255, 0, 0, 0),
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 40.0,
+                            ),
+                            GestureDetector(
+                              onTap: () async {
+                                if (_formKey.currentState!.validate()) {
+                                  setState(() {
+                                    name = nameController.text;
+                                    email = mailController.text;
+                                    password = passwordController.text;
+                                  });
+                                }
+                              },
+                              child: Material(
+                                elevation: 5.0,
+                                borderRadius: BorderRadius.circular(20.0),
+                                child: Container(
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 8.0),
+                                  width: 200,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20.0),
+                                    color: Color.fromARGB(255, 228, 57, 5),
+                                  ),
+                                  child: const Center(
+                                    child: Text(
+                                      "SIGN UP",
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontFamily: 'Poppins',
+                                          fontSize: 18.0,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),
