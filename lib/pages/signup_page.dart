@@ -18,7 +18,7 @@ class _SignupPageState extends State<SignupPage> {
   TextEditingController passwordController = new TextEditingController();
   TextEditingController mailController = new TextEditingController();
 
-  final _formKey = GlobalKey<FormState>();
+  final _formkey = GlobalKey<FormState>();
 
   registration() async {
     if (password != null) {
@@ -26,34 +26,33 @@ class _SignupPageState extends State<SignupPage> {
         UserCredential userCredential = await FirebaseAuth.instance
             .createUserWithEmailAndPassword(email: email, password: password);
         // ignore: use_build_context_synchronously
-        ScaffoldMessenger.of(context).showSnackBar((const SnackBar(
+        ScaffoldMessenger.of(context).showSnackBar((SnackBar(
             backgroundColor: Colors.redAccent,
             content: Text(
               "Registered Successfully",
               style: TextStyle(fontSize: 20.0),
             ))));
-        // ignore: use_build_context_synchronously
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => const BottomNavBar(),
+            builder: (context) => BottomNavBar(),
           ),
         );
       } on FirebaseException catch (e) {
-        if (e.code == "weak-password") {
-          // ignore: use_build_context_synchronously
-          ScaffoldMessenger.of(context).showSnackBar((const SnackBar(
+        if (e.code == 'weak-password') {
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
               backgroundColor: Colors.orangeAccent,
               content: Text(
                 "Password provided is too weak",
                 style: TextStyle(fontSize: 18.0),
-              ))));
+              )));
         } else if (e.code == "email-already-in-use") {
-          // ignore: use_build_context_synchronously
-          ScaffoldMessenger.of(context).showSnackBar((const SnackBar(
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
               backgroundColor: Colors.orangeAccent,
-              content: Text("Account already exsists",
-                  style: TextStyle(fontSize: 18.0)))));
+              content: Text(
+                "Account already exsists",
+                style: TextStyle(fontSize: 18.0),
+              )));
         }
       }
     }
@@ -124,7 +123,7 @@ class _SignupPageState extends State<SignupPage> {
                         color: Colors.white,
                       ),
                       child: Form(
-                        key: _formKey,
+                        key: _formkey,
                         child: Column(
                           children: [
                             const SizedBox(
@@ -201,9 +200,9 @@ class _SignupPageState extends State<SignupPage> {
                             const SizedBox(
                               height: 40.0,
                             ),
-                            GestureDetector(
+                            InkWell(
                               onTap: () async {
-                                if (_formKey.currentState!.validate()) {
+                                if (_formkey.currentState!.validate()) {
                                   setState(() {
                                     name = nameController.text;
                                     email = mailController.text;
