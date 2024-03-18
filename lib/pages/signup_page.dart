@@ -200,7 +200,7 @@ class _SignupPageState extends State<SignupPage> {
                             const SizedBox(
                               height: 40.0,
                             ),
-                            InkWell(
+                            GestureDetector(
                               onTap: () async {
                                 if (_formkey.currentState!.validate()) {
                                   setState(() {
