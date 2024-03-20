@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/pages/home_page.dart';
 import 'package:food_delivery_app/pages/signup_page.dart';
@@ -12,6 +13,18 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   bool _obsecureText = true;
+  String email = "", password = "";
+
+  TextEditingController useremailcontroller = new TextEditingController();
+  TextEditingController userpasswordcontroller = new TextEditingController();
+
+  userLogin() async {
+    try {
+      await FirebaseAuth.instance
+          .signInWithEmailAndPassword(email: email, password: password);
+    } catch (e) {}
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
