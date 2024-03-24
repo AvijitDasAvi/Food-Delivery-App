@@ -119,7 +119,7 @@ class _ForgotPassState extends State<ForgotPass> {
                       const SizedBox(
                         height: 40.0,
                       ),
-                      GestureDetector(
+                      InkWell(
                         onTap: () {
                           if (_formkey.currentState!.validate()) {
                             setState(() {
@@ -160,9 +160,9 @@ class _ForgotPassState extends State<ForgotPass> {
                           const SizedBox(
                             width: 5.0,
                           ),
-                          GestureDetector(
+                          InkWell(
                             onTap: () {
-                              Navigator.push(
+                              Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) => const SignupPage(),
