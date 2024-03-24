@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/pages/bottom_nav_bar.dart';
+import 'package:food_delivery_app/pages/forgot_pass_page.dart';
 import 'package:food_delivery_app/pages/home_page.dart';
 import 'package:food_delivery_app/pages/signup_page.dart';
 import 'package:food_delivery_app/widgets/widget_support.dart';
@@ -174,11 +175,21 @@ class _LoginPageState extends State<LoginPage> {
                             const SizedBox(
                               height: 10.0,
                             ),
-                            Container(
-                              alignment: Alignment.topRight,
-                              child: Text(
-                                "Forgot Password ?",
-                                style: AppWidget.semiBoldTextFieldStyle(),
+                            InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => ForgotPass(),
+                                  ),
+                                );
+                              },
+                              child: Container(
+                                alignment: Alignment.topRight,
+                                child: Text(
+                                  "Forgot Password ?",
+                                  style: AppWidget.semiBoldTextFieldStyle(),
+                                ),
                               ),
                             ),
                             const SizedBox(
