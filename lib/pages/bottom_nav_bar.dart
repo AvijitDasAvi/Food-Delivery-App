@@ -23,10 +23,10 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
   @override
   void initState() {
-    home = HomePage();
-    order = OrderPage();
-    wallet = WalletPage();
-    profile = ProfilePage();
+    home = const HomePage();
+    order = const OrderPage();
+    wallet = const WalletPage();
+    profile = const ProfilePage();
     pages = [home, order, wallet, profile];
     super.initState();
   }

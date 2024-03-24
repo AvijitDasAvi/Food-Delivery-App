@@ -5,7 +5,7 @@ import 'package:food_delivery_app/pages/onboard_page.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
-      options: FirebaseOptions(
+      options: const FirebaseOptions(
           apiKey: "AIzaSyALrWwhZCeDjaaQJFMq4OBWl0wFtw0KYMI",
           appId: "1:678359249917:web:f723ff36a2078995c05f94",
           messagingSenderId: "678359249917",
