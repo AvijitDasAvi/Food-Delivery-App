@@ -4,7 +4,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/pages/bottom_nav_bar.dart';
 import 'package:food_delivery_app/pages/login_page.dart';
+import 'package:food_delivery_app/service/database.dart';
+import 'package:food_delivery_app/service/shared_pref.dart';
 import 'package:food_delivery_app/widgets/widget_support.dart';
+import 'package:random_string/random_string.dart';
 
 class SignupPage extends StatefulWidget {
   const SignupPage({super.key});
@@ -37,6 +40,17 @@ class _SignupPageState extends State<SignupPage> {
               "Registered Successfully",
               style: TextStyle(fontSize: 20.0),
             ))));
+        String Id = randomAlphaNumeric(10);
+        Map<String, dynamic> addUserInfo = {
+          "Name": nameController.text,
+          "Email": mailController.text,
+          "Id": Id,
+        };
+        await DatabaseMethods().addUserDetail(addUserInfo, Id);
+        await SharedPreferenceHelper().saveUserName(nameController.text);
+        await SharedPreferenceHelper().saveUserEmail(mailController.text);
+        await SharedPreferenceHelper().saveUserId(Id);
+
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(

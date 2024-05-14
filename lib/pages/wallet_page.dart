@@ -150,7 +150,7 @@ class _WalletPageState extends State<WalletPage> {
               ),
             ),
             const SizedBox(height: 30.0),
-            InkWell(
+            GestureDetector(
               onTap: () {},
               child: Container(
                 margin: EdgeInsets.symmetric(horizontal: 30.0),

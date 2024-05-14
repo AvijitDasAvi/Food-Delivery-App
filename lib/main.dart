@@ -1,12 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:food_delivery_app/pages/onboard_page.dart';
-import 'package:food_delivery_app/pages/wallet_page.dart';
-import 'package:food_delivery_app/widgets/app_constant.dart';
 
 void main() async {
-  Stripe.publishableKey = publishableKey;
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
       options: const FirebaseOptions(
@@ -33,7 +29,7 @@ class MyApp extends StatelessWidget {
             print("Error");
           }
           if (snapshot.connectionState == ConnectionState.done) {
-            return WalletPage();
+            return OnboardPage();
           }
           return const CircularProgressIndicator();
         },
