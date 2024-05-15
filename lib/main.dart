@@ -1,6 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:food_delivery_app/admin/home_admin.dart';
+import 'package:food_delivery_app/pages/onboard_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
             print("Error");
           }
           if (snapshot.connectionState == ConnectionState.done) {
-            return HomeAdmin();
+            return OnboardPage();
           }
           return const CircularProgressIndicator();
         },

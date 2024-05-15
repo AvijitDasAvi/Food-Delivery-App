@@ -56,7 +56,7 @@ class _AdminLoginState extends State<AdminLogin> {
                         elevation: 3.0,
                         borderRadius: BorderRadius.circular(20),
                         child: Container(
-                          height: MediaQuery.of(context).size.height / 2,
+                          height: MediaQuery.of(context).size.height / 1.9,
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(20),

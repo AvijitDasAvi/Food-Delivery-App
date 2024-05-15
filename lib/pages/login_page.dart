@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/admin/admin_login.dart';
 import 'package:food_delivery_app/pages/bottom_nav_bar.dart';
 import 'package:food_delivery_app/pages/forgot_pass_page.dart';
 import 'package:food_delivery_app/pages/home_page.dart';
@@ -248,7 +249,22 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 const SizedBox(
-                  height: 50.0,
+                  height: 30.0,
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const AdminLogin()));
+                  },
+                  child: Text(
+                    "Admin Login ?",
+                    style: AppWidget.semiBoldTextFieldStyle(),
+                  ),
+                ),
+                SizedBox(
+                  height: 20.0,
                 ),
                 InkWell(
                   onTap: () {
