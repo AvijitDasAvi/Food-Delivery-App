@@ -17,14 +17,14 @@ class _BottomNavBarState extends State<BottomNavBar> {
   late List<Widget> pages;
   late List<Widget> currentPage;
   late HomePage home;
-  late OrderPage order;
+  late Order order;
   late Profile profile;
   late WalletPage wallet;
 
   @override
   void initState() {
     home = const HomePage();
-    order = const OrderPage();
+    order = const Order();
     wallet = const WalletPage();
     profile = const Profile();
     pages = [home, order, wallet, profile];
